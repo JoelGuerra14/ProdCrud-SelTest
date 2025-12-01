@@ -1,0 +1,123 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión - SGP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+            height: 100vh;
+        }
+
+        .card-custom {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: #ffffff;
+        }
+
+        .btn-navy {
+            background-color: #0a192f;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+            .btn-navy:hover {
+                background-color: #233554;
+                color: #64ffda;
+                transform: translateY(-2px);
+            }
+
+        .form-control {
+            background-color: #f0f2f5;
+            border: none;
+            height: 50px;
+        }
+
+            .form-control:focus {
+                background-color: #e6e8eb;
+                box-shadow: none;
+                border: 1px solid #0a192f;
+            }
+
+        .input-group-text {
+            background-color: #f0f2f5;
+            border: none;
+            color: #0a192f;
+        }
+
+        .brand-logo {
+            font-size: 3rem;
+            color: #0a192f;
+        }
+
+        .link-custom {
+            color: #0a192f;
+            font-weight: 600;
+        }
+
+            .link-custom:hover {
+                color: #0056b3;
+            }
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center">
+
+    <div class="card card-custom p-5" style="width: 400px;">
+
+        <div class="text-center mb-4">
+            <h4 class="mt-2 fw-bold" style="color: #0a192f;">Acceso SGP</h4>
+        </div>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger text-center" id="msgError" role="alert">
+                <i class="bi bi-exclamation-circle-fill me-2"></i> @ViewBag.Error
+            </div>
+        }
+
+        <form asp-action="Login" method="post">
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold">USUARIO</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                    <input type="text" name="usuario" id="inputUser" class="form-control" placeholder="Ej. admin" required />
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label text-muted small fw-bold">CONTRASEÑA</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="••••••" required />
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" id="btnLogin" class="btn btn-navy">
+                    INGRESAR <i class="bi bi-arrow-right-short"></i>
+                </button>
+            </div>
+
+            <div class="text-center mt-4">
+                <span class="text-muted small">¿Nuevo en el sistema?</span>
+                <a href="/Account/Register" class="link-custom text-decoration-none small ms-1">Crear cuenta</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

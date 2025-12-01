@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SGP.Domain.Entities;
 using SGP.Persistence.Db;
 
-namespace SGP.Web
+namespace SGP.Web.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly Context _context;
