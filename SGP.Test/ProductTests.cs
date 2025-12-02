@@ -15,7 +15,7 @@ namespace SGP.Test
         private readonly string _urlBase = "https://localhost:7184";
 
         private static ExtentReports _extent;
-        private static ExtentTest _test;
+        private ExtentTest _test;
 
         private static string _reportPath;
 
